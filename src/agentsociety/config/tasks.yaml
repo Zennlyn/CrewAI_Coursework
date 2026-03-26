@@ -1,0 +1,45 @@
+analyze_user_task:
+  description: >
+    Retrieve all relevant records associated with {user_id} from the retrieval library. 
+    Analyze the user's historical reviews to infer their preferences, including favored cuisines, price sensitivity, sentiment tendencies, and rating behavior (e.g., strict vs. lenient). 
+    Identify consistent patterns and notable anomalies. 
+    Summarize these findings into a structured, comprehensive report.
+  expected_output: >
+    A well-organized Markdown report containing:
+    * User Overview (general behavior summary)
+    * Preference Profile (cuisines, pricing, ambiance, etc.)
+    * Rating Behavior Analysis (strict vs. lenient, distribution insights)
+    * Notable Patterns (recurring likes/dislikes)
+    * Summary (concise synthesis of key traits)
+  agent: user_profiler
+
+analyze_item_task:
+  description: >
+    Use {item_id} to query the retrieval library and gather all relevant information about the restaurant or business. 
+    Analyze customer feedback to extract key characteristics, including signature offerings, strengths, weaknesses, service quality, and common complaints. 
+    Focus on recurring themes and statistically significant signals.
+  expected_output: >
+    A detailed Markdown report containing:
+    * Business Overview (type, positioning, general perception)
+    * Key Strengths (e.g., popular dishes, praised aspects)
+    * Key Weaknesses (e.g., frequent complaints)
+    * Customer Sentiment Trends (common opinions and tone)
+    * Summary (balanced evaluation of the business)
+  agent: item_analyst
+
+predict_review_task:
+  description: >
+    Synthesize the outputs from the user analysis and item analysis to predict how the user would rate and review the specified business. 
+    The prediction must reflect alignment between user preferences and item characteristics, accounting for tolerance levels and trade-offs.
+  expected_output: >
+    A valid JSON object with exactly two fields without '```':
+    {
+      "stars": <integer or float rating>,
+      "text": "<natural language review>"
+    }
+  constraints: >
+    * "stars" must be a realistic rating (e.g., 1-5 scale, integer or one decimal place if needed)
+    * "text" must be a coherent, human-like review consistent with the predicted rating
+    * No additional fields, no Markdown, no explanations
+    * Output must be JSON object only
+  agent: prediction_modeler

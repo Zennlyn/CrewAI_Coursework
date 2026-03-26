@@ -1,0 +1,3 @@
+.venv
+.env
+src/agentsociety/__pycache__
