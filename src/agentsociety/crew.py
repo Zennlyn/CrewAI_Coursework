@@ -21,6 +21,8 @@ embedding_model: CohereProviderSpec = {
 
 pdf_source = PDFKnowledgeSource(file_paths=["Yelp Data Translation.pdf"])
 
+# The implementation was done using JSONKnowledgeSource as using JSONSearchTool keeps hitting the token limit of Cohere.
+# Adjusting chunk_size is needed to prevent our system to hit the token limit provided by the provider.
 user_source = JSONKnowledgeSource(
     file_paths=["JSON Files/user_subset.json"],
     chunk_size=30
