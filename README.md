@@ -1,4 +1,4 @@
-# AgentSociety Challenge
+# AgentSociety
 This course work was completed for the elective course **Large Language Models and Applications**, where I implemented a **static baseline system** using [CrewAI](https://crewai.com/), a multi-agent orchestration framework. 
 
 The system operates on subsets of the Yelp dataset, which contain the characteristics of the most active users along with their ratings and reviews for various businesses (see more details [here](https://github.com/Zennlyn/CrewAI_Coursework/blob/main/knowledge/Yelp%20Data%20Translation.pdf)). 
