@@ -18,7 +18,15 @@ This coursework implements **Retrieval-Augmented Generation (RAG)** system is im
 
 A shared knowledge describing the details of each key field in the database is made accessible to all agents by assigning it to the crew-level `knowledge_sources`.
 
-## Output Example
+## Input and Output Example
+**Input:**
+```
+{
+"user_id": "LQUk3WFBgEfwIYkNDh5l1Q",
+"item_id": "KueYmi7Vrr0Hyt0_iIux4Q"
+}
+```
+**Output:**
 ```
 {
   "stars": 4.5,
